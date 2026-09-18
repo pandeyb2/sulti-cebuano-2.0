@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sulti — Cebuano phrase practice</title>
+    <meta name="theme-color" content="#123d33" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sulti" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Sulti home"><img src="sulti-icon.svg" alt="" /> Sulti</a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a data-nav="home" class="active" href="#home"><span aria-hidden="true">⌂</span> Home</a>
+          <a data-nav="learn" href="#learn"><span aria-hidden="true">◉</span> Learn</a>
+          <a data-nav="library" href="#library"><span aria-hidden="true">▤</span> Phrasebook</a>
+        </nav>
+        <button id="reset-progress" class="text-button" type="button">Reset progress</button>
+      </header>
+
+      <section id="home" class="hero">
+        <div>
+          <p class="kicker">Cebuano for everyday life</p>
+          <h1>Speak with people, not a phrasebook.</h1>
+          <p class="lede">Learn practical Cebuano phrases through short, friendly moments—ordering food, asking for help, greeting family, and getting around.</p>
+          <img class="hero-art" src="sulti-hero.svg" alt="Colorful illustration of a Cebuano greeting outside a neighborhood café" />
+          <a class="primary-button" href="#learn">Start a 3-minute lesson <span aria-hidden="true">→</span></a>
+        </div>
+        <aside class="streak-card" aria-label="Learning progress">
+          <span class="streak-icon" aria-hidden="true">🔥</span>
+          <div><strong id="known-count">0</strong><span>phrases saved</span></div>
+          <div class="meter" aria-hidden="true"><i id="known-meter"></i></div>
+          <p id="progress-copy">Choose a phrase to begin.</p>
+        </aside>
+      </section>
+
+      <section class="today-dashboard" aria-labelledby="today-heading">
+        <div class="dashboard-title"><div><p class="kicker">Your dashboard</p><h2 id="today-heading">Today in Sulti</h2></div><span class="daily-badge">Daily goal</span></div>
+        <div class="dashboard-grid">
+          <article class="goal-panel"><div><p class="panel-label">Practice today</p><p class="goal-number"><strong id="daily-goal">0</strong><span>/ 3 phrases</span></p><div class="goal-track" aria-label="Daily progress"><i id="daily-goal-meter"></i></div></div><button id="continue-dashboard" class="round-action" type="button" aria-label="Continue learning">→</button></article>
+          <article class="dashboard-stat"><span class="stat-icon" aria-hidden="true">♡</span><p class="panel-label">Saved for later</p><strong id="dash-saved">0</strong><span>phrases</span></article>
+          <article class="dashboard-stat"><span class="stat-icon" aria-hidden="true">◈</span><p class="panel-label">Phrasebook</p><strong id="dash-total">250</strong><span>ready to explore</span></article>
+          <article class="review-panel"><span class="stat-icon" aria-hidden="true">↻</span><div><p class="panel-label">Quick review</p><strong id="dash-review">Save phrases to revisit</strong></div><button id="review-saved" class="mini-button" type="button">Review</button></article>
+        </div>
+      </section>
+
+      <section class="quick-start" aria-labelledby="quick-heading">
+        <div class="section-heading compact-heading"><div><p class="kicker">Choose a moment</p><h2 id="quick-heading">What do you want to say today?</h2></div><button id="surprise-me" class="text-button icon-button" type="button"><span aria-hidden="true">✦</span> Surprise me</button></div>
+        <div id="quick-actions" class="quick-actions" aria-label="Choose a phrase category"></div>
+      </section>
+
+      <section id="learn" class="learn-section" aria-labelledby="lesson-heading">
+        <div class="section-heading"><div><p class="kicker">Daily practice</p><h2 id="lesson-heading">Learn in real-life moments</h2></div><p>Tap “Next” to work through a focused mini lesson.</p></div>
+        <div class="lesson-layout">
+          <article class="lesson-card">
+            <div class="lesson-topline"><span id="practice-category">Food & drink</span><span id="practice-position">1 of 8</span></div>
+            <p id="practice-situation" class="situation">At a small café</p>
+            <p id="practice-cebuano" class="large-phrase">Palihog, usa ka kape.</p>
+            <p id="practice-english" class="meaning">“One coffee, please.”</p>
+            <p id="practice-pronunciation" class="pronunciation">pah-lee-HOG, OO-sa ka KAH-peh</p>
+            <div class="lesson-actions"><button id="speak-practice" class="secondary-button" type="button">🔊 Hear it</button><button id="save-practice" class="primary-button compact" type="button">Save phrase</button><button id="next-practice" class="next-button" type="button">Next <span aria-hidden="true">→</span></button></div>
+          </article>
+          <aside class="context-card"><p class="context-label">Try this next</p><p id="practice-reply" class="reply">A barista may ask: <strong>Unsa nga klase?</strong><br><span>“What kind?”</span></p><hr><p id="practice-note" class="culture-note"><strong>Culture tip:</strong> “Palihog” turns a request into a polite “please.”</p></aside>
+        </div>
+      </section>
+
+      <section id="library" class="library-section" aria-labelledby="library-heading">
+        <div class="section-heading"><div><p class="kicker">Phrasebook</p><h2 id="library-heading">250 useful phrases</h2></div><p id="library-count">250 phrases</p></div>
+        <div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search English or Cebuano" /></label><div id="filters" class="filter-row" aria-label="Filter phrase categories"></div></div>
+        <div id="phrase-grid" class="phrase-grid" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer>Built for practice—Cebuano is also often called Bisaya in everyday conversation.</footer>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a data-nav="home" class="active" href="#home"><span aria-hidden="true">⌂</span><small>Home</small></a>
+      <a data-nav="learn" href="#learn"><span aria-hidden="true">◉</span><small>Learn</small></a>
+      <a data-nav="library" href="#library"><span aria-hidden="true">▤</span><small>Explore</small></a>
+      <a id="saved-nav" href="#library"><span aria-hidden="true">♡</span><small>Saved</small></a>
+    </nav>
+    <script src="app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Sulti — Cebuano phrase practice",
+  "short_name": "Sulti",
+  "description": "Everyday Cebuano phrases for English speakers.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fbf8",
+  "theme_color": "#123d33",
+  "icons": [
+    {
+      "src": "sulti-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
